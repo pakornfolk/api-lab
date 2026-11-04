@@ -48,4 +48,8 @@ def rating(api, auth, pizza_id):
     assert res.status_code == 201
     made = res.json()
     yield made
-    api.delete(f"/api/ratings/{made['id']}", headers=auth)
+    api.delete(f"/api/ratings/{made['id']}", headers=auth)\
+
+@pytest.fixture
+def other_auth(api):
+    return log_in_new_user(api)

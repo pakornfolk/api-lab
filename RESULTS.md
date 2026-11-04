@@ -30,3 +30,15 @@ Ran `pytest -v test_no_session.py` three times.
   - Block 1: exclude 1 รายการ
   - Block 2: exclude 2 รายการ
   - Block 3: exclude ทั้ง 3 รายการ
+
+### Step A4: Rating ownership
+
+A second user attempted to read, update, and delete a rating created by the owner.
+
+| Operation | Status Code | Result |
+|---|---:|---|
+| Read another user's rating | 404 | Refused |
+| Update another user's rating | 400 | Refused |
+| Delete another user's rating | 400 | Refused |
+
+After each attempt, the owner could still read the rating and its stars value remained unchanged.
