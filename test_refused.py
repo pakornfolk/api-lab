@@ -1,19 +1,14 @@
 import uuid
 
 def test_duplicate_username_is_refused(api):
-    username = "duplicate-user"
+    username = "duplicate-user-" + uuid.uuid4().hex[:12]
     password = "Pizza-2026"
+    user = {"username": username, "password": password}
 
-    first = api.post(
-        "/api/users",
-        json={"username": username, "password": password},
-    )
+    first = api.post("/api/users", json=user)
     assert first.status_code == 201
 
-    second = api.post(
-        "/api/users",
-        json={"username": username, "password": password},
-    )
+    second = api.post("/api/users", json=user)
     assert second.status_code == 400
     assert second.json() == {"error": "username already taken"}
 
