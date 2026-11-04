@@ -1,4 +1,5 @@
-# API lab results
+# ผลการทดลอง API Lab
 
 ## Part 0
-- Step 0.1, the number of pizza names: 18
+- Step 0.1 จำนวนชื่อพิซซ่าที่พบ: 18
+- Step 0.3 รหัสสถานะเมื่อส่งคำขอโดยไม่มี Token: 401
